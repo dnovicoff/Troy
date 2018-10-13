@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "sales"
+AuthUserFile "/home1/troy/.htpasswds/public_html/troysales/passwd"
+require valid-user

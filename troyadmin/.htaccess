@@ -1,0 +1,4 @@
+AuthUserFile "/home1/troy/.htpasswds/public_html/troyadmin/passwd"
+AuthType Basic
+AuthName "troyadmin"
+require valid-user

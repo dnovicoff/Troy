@@ -1,0 +1,41 @@
+
+
+<taconite>
+	<replace select=".overlayPage">
+<?php
+	$sku = $_GET['sku'];
+	$vendor = $_GET['vendor'];
+	$server = "127.0.0.1";
+	$user = "troy";
+	$pass = "troy4troy";
+	$database = "inventory";
+	$description = "";
+
+	$select = "SELECT t1.sku,t1.price,t1.description FROM item as t1,category as t2 WHERE ".
+		"t1.category = t2.categoryID AND t2.category='".$type."' ORDER BY t1.sku ASC";
+	$conn = mysql_connect($server,$user,$pass);
+
+	$db_found = mysql_select_db($database,$conn);
+	if ($db_found)  {
+		$result = mysql_query($select);
+		while ($row = mysql_fetch_assoc($result))  {
+			$description = $row['description'];
+		}
+?>
+		<div class="row">
+			<img src="img/<?php echo $vendor ?>/fabric/<?php echo $sku ?>_300x450.jpg" style="float:none;" width="300" height="450" />
+		</div>
+<?php
+	}  else  {
+		print "$database NOT Found ";
+	}
+?>
+	</replace>
+
+	<replace select=".overlayPageTitle">
+		<?php echo $description ?>
+	</replace>
+
+	<eval><![CDATA[
+	]]></eval>
+</taconite>

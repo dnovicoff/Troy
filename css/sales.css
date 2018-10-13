@@ -1,0 +1,16 @@
+
+.salesHeader  {
+	clear:right;
+	float:left;
+	width:24%;
+	border:1px solid black;
+	font-weight:bold;
+	font-size:20px;
+}
+
+.salesColumn  {
+	clear:right;
+	float:left;
+	width:24%;
+	border:1px solid black;
+}
